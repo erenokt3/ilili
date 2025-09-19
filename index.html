@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalpli Mesaj</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background: #ffe6f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff4d6d;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: red;
+      user-select: none;
+      pointer-events: none;
+      animation: floatUp 2s linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selam güzellik, cennetten düşerken canın yanmadı dimi?</h1>
+  <div>
+    <button id="yesBtn">Evet</button>
+    <button id="noBtn">Hayır</button>
+  </div>
+
+  <script>
+    // Kalp oluşturma fonksiyonu
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+      document.body.appendChild(heart);
+
+      // 2 saniye sonra kalbi sil
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }
+
+    // Butonlara tıklayınca kalpler başlasın
+    function startHear
